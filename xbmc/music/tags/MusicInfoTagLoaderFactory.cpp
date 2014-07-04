@@ -32,6 +32,7 @@
 #include "MusicInfoTagLoaderDatabase.h"
 #include "MusicInfoTagLoaderASAP.h"
 #include "MusicInfoTagLoaderMidi.h"
+#include "MusicInfoTagLoaderNOTAG.h"
 #include "utils/StringUtils.h"
 #include "utils/URIUtils.h"
 #include "FileItem.h"
@@ -118,6 +119,11 @@ IMusicInfoTagLoader* CMusicInfoTagLoaderFactory::CreateLoader(const CStdString& 
   {
     CMusicInfoTagLoaderMidi * pTagLoader = new CMusicInfoTagLoaderMidi();
     return (IMusicInfoTagLoader*)pTagLoader;
+  }
+  else
+  {
+    CMusicInfoTagLoaderNOTAG * pTagLoader = new CMusicInfoTagLoaderNOTAG();
+	 return (IMusicInfoTagLoader*)pTagLoader;
   }
 
   return NULL;

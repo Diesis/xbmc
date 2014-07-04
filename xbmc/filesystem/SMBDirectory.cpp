@@ -382,7 +382,8 @@ CStdString CSMBDirectory::MountShare(const CStdString &smbPath, const CStdString
   CUtil::SudoCommand("mkdir -p " + strMountPoint);
 
   CStdString strCmd = "mount -t cifs " + smbPath + " " + strMountPoint +
-    " -o rw,nobrl,directio";
+    //" -o rw,nobrl,directio";
+	 " -o rw,nobrl,cache=none,noatime,rsize=8192";
   if (!strUser.empty())
     strCmd += ",user=" + strUser + ",password=" + strPass;
   else

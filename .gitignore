@@ -21,7 +21,9 @@ config.log
 *.[oa]
 *.l[oa]
 *.so
+!libmpdplayer.so
 *.so.*
+!libmpdplayer.so.1
 *.dylib
 *.lineno
 *.py[co]

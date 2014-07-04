@@ -1285,7 +1285,19 @@ static void gsl_create_fast_iflow(void)
 } /* }}} */
 
 void yy_scan_string(const char *str);
-void yyparse(void);
+#ifdef YYPARSE_PARAM
+#if defined __STDC__ || defined __cplusplus
+int yyparse (void *YYPARSE_PARAM);
+#else
+int yyparse ();
+#endif
+#else /* ! YYPARSE_PARAM */
+#if defined __STDC__ || defined __cplusplus
+int yyparse (void);
+#else
+int yyparse ();
+#endif
+#endif /* ! YYPARSE_PARAM */
 
 GoomHash *gsl_globals(GoomSL *_this)
 {

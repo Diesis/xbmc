@@ -43,7 +43,8 @@ namespace XBMCAddon
 
       if (_playerCore == EPC_DVDPLAYER ||
           _playerCore == EPC_MPLAYER ||
-          _playerCore == EPC_PAPLAYER)
+          _playerCore == EPC_PAPLAYER ||
+			 _playerCore == EPC_MPDPLAYER)
         playerCore = (EPLAYERCORES)_playerCore;
       else
         playerCore = EPC_NONE;

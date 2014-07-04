@@ -539,6 +539,7 @@ namespace XBMCAddon
     int getPLAYER_CORE_DVDPLAYER() { return EPC_DVDPLAYER; }
     int getPLAYER_CORE_MPLAYER() { return EPC_MPLAYER; }
     int getPLAYER_CORE_PAPLAYER() { return EPC_PAPLAYER; }
+    int getPLAYER_CORE_MPDPLAYER() { return EPC_MPDPLAYER; }
     int getTRAY_OPEN() { return TRAY_OPEN; }
     int getDRIVE_NOT_READY() { return DRIVE_NOT_READY; }
     int getTRAY_CLOSED_NO_MEDIA() { return TRAY_CLOSED_NO_MEDIA; }

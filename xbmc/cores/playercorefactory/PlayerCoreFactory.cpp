@@ -24,6 +24,7 @@
 #include "cores/AudioEngine/Utils/AEUtil.h"
 #include "cores/dvdplayer/DVDPlayer.h"
 #include "cores/paplayer/PAPlayer.h"
+#include "cores/mpdplayer/MPDPlayer.h"
 #include "cores/paplayer/DVDPlayerCodec.h"
 #include "dialogs/GUIDialogContextMenu.h"
 #include "utils/HttpHeader.h"
@@ -336,6 +337,10 @@ bool CPlayerCoreFactory::LoadConfiguration(const std::string &file, bool clear)
     paplayer->m_bPlaysAudio = true;
     m_vecCoreConfigs.push_back(paplayer);
 
+    CPlayerCoreConfig* mpdplayer = new CPlayerCoreConfig("MPDPlayer", EPC_MPDPLAYER, NULL);
+	 mpdplayer->m_bPlaysAudio = true;
+	 m_vecCoreConfigs.push_back(mpdplayer);
+
 #if defined(HAS_OMXPLAYER)
     CPlayerCoreConfig* omxplayer = new CPlayerCoreConfig("OMXPlayer", EPC_OMXPLAYER, NULL);
     omxplayer->m_bPlaysAudio = true;
@@ -368,6 +373,7 @@ bool CPlayerCoreFactory::LoadConfiguration(const std::string &file, bool clear)
       EPLAYERCORES eCore = EPC_NONE;
       if (type == "dvdplayer" || type == "mplayer") eCore = EPC_DVDPLAYER;
       if (type == "paplayer" ) eCore = EPC_PAPLAYER;
+		if (type == "mpdplayer" ) eCore = EPC_MPDPLAYER;
       if (type == "externalplayer" ) eCore = EPC_EXTPLAYER;
 
       if (eCore != EPC_NONE)

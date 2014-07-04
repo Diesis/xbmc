@@ -537,7 +537,10 @@ xbmc.bin: $(OBJSXBMC) $(DYNOBJSXBMC) $(NWAOBJSXBMC) $(MAINOBJS)
 ifeq ($(findstring osx,@ARCH@), osx)
 	$(SILENT_LD) $(CXX) $(LDFLAGS) -o xbmc.bin $(MAINOBJS) -Wl,-all_load,-ObjC $(MAINOBJS) $(DYNOBJSXBMC) $(NWAOBJSXBMC) $(OBJSXBMC) $(LIBS) -rdynamic
 else
-	$(SILENT_LD) $(CXX) $(CXXFLAGS) $(LDFLAGS) -o xbmc.bin $(MAINOBJS) -Wl,--start-group $(MAINOBJS) $(DYNOBJSXBMC) $(OBJSXBMC) -Wl,--end-group $(NWAOBJSXBMC) $(LIBS) -rdynamic
+	$(MAKE) -C xbmc/cores/mpdplayer
+	#$(SILENT_LD) $(CXX) $(CXXFLAGS) $(LDFLAGS) -o xbmc.bin $(MAINOBJS) -Wl,--start-group $(MAINOBJS) $(DYNOBJSXBMC) $(OBJSXBMC) -Wl,--end-group $(NWAOBJSXBMC) $(LIBS) -rdynamic
+	$(CXX) $(CXXFLAGS) $(LDFLAGS) -L@abs_top_srcdir@/xbmc/cores/mpdplayer -lmpdplayer -lmpdclient -o xbmc.bin $(MAINOBJS) -Wl,--start-group $(MAINOBJS) $(DYNOBJSXBMC) $(OBJSXBMC) -Wl,--end-group $(NWAOBJSXBMC) $(LIBS) -rdynamic
+	#$(CXX) $(CXXFLAGS) $(LDFLAGS) -L@abs_top_srcdir@/xbmc/cores/mpdplayer -lmpdplayer -lmpdclient -o xbmc.bin -Wl,--whole-archive $(DYNOBJSXBMC) $(OBJSXBMC) xbmc/main/main.a -Wl,--no-whole-archive $(NWAOBJSXBMC) $(LIBS) -rdynamic
 endif
 
 xbmc-xrandr: xbmc-xrandr.c

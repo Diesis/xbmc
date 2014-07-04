@@ -10,6 +10,37 @@
     #include "goomsl.h"
     #include "goomsl_private.h"
 
+/* Tokens.  */
+#ifndef YYTOKENTYPE
+# define YYTOKENTYPE
+   /* Put the tokens into the symbol table, so that GDB and other debuggers
+      know about them.  */
+   enum yytokentype {
+     LTYPE_INTEGER = 258,
+     LTYPE_FLOAT = 259,
+     LTYPE_VAR = 260,
+     LTYPE_PTR = 261,
+     PTR_TK = 262,
+     INT_TK = 263,
+     FLOAT_TK = 264,
+     DECLARE = 265,
+     EXTERNAL = 266,
+     WHILE = 267,
+     DO = 268,
+     NOT = 269,
+     PLUS_EQ = 270,
+     SUB_EQ = 271,
+     DIV_EQ = 272,
+     MUL_EQ = 273,
+     SUP_EQ = 274,
+     LOW_EQ = 275,
+     NOT_EQ = 276,
+     STRUCT = 277,
+     FOR = 278,
+     IN = 279
+   };
+#endif
+
 #define STRUCT_ALIGNMENT 16
 /* #define VERBOSE  */
 
