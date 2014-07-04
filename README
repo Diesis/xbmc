@@ -1,5 +1,17 @@
 About
 -----
+
+This repository is a fork of XBMC which implement Music Player Daemon natively.
+
+It is intended to be used on Diesis hardware so, the source code only compiles
+on x86_64 architecture for the moment because of a non free library included
+in the package.
+
+feel free to contact the repository owner if you want additional informations.
+
+-----
+
+
 XBMC is an award-winning free and open source (GPL) software media player and
 entertainment hub for digital media. XBMC is available for multiple platforms.
 Created in 2003 by a group of like minded programmers, XBMC is a non-profit
